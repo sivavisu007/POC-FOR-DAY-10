@@ -7,6 +7,10 @@ models.Base.metadata.create_all(bind=models.engine)
 
 app = FastAPI()
 
+@app.get("/")
+async def root():
+    return "Server is running"
+
 @app.post("/phonepost", response_model=schemas.PhoneBase)
 async def create_product(pro :schemas.PhoneBase,  db: Session=Depends(models.get_db)):
     new_pro = models.ForPhone(**pro.dict())
