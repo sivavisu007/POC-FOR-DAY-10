@@ -52,4 +52,4 @@ async def Get_By_Id(phone_id : int, db: Session= Depends(models.get_db)):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, port= 5000)
+    uvicorn.run(app)
