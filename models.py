@@ -1,8 +1,8 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Column, Integer, String,create_engine
-
-sql_url = "postgresql://postgres:admin@localhost/postgres"
+import config
+sql_url = config.settings.database_url
 engine = create_engine(sql_url)
 session = sessionmaker(autocommit = False, autoflush= False, bind=engine)
 
